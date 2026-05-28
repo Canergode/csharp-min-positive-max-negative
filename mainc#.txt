@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MinPositiveMaxNegative 
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            FindMinMax();
+            Console.ReadLine();
+        }
+
+        private static void FindMinMax()
+        {
+            int[] numbers = { 19, 45, -247, 212, -134, 319, -78 };
+
+            // Initialize with extreme values
+            int smallestPositive = int.MaxValue;
+            int largestNegative = int.MinValue;
+
+            foreach(var item in numbers)
+            {
+                // Find smallest positive number
+                if(item>0 && item<smallestPositive)
+                {
+                    smallestPositive = item;
+                }
+                // Find largest negative number
+                else if(item<0 && item>largestNegative)
+                {
+                    largestNegative = item;
+                }
+            }
+            Console.WriteLine("Largest negative:" + largestNegative);
+            Console.WriteLine("Smallest positive:" + smallestPositive);
+        }
+    }
+
+}
